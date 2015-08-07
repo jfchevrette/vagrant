@@ -21,7 +21,7 @@ module VagrantPlugins
 
         def self.restart_nfs(machine)
           if systemd?(machine)
-            machine.communicate.sudo("/bin/systemctl restart rpcbind nfs")
+            machine.communicate.sudo("/bin/systemctl restart rpcbind nfs-utils")
           else
             machine.communicate.sudo("/etc/init.d/rpcbind restart; /etc/init.d/nfs restart")
           end
